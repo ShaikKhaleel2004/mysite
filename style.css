@@ -1,0 +1,84 @@
+h1 {
+    color: black;
+    list-style: none;
+    text-align: center;
+}
+.coursera{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+div ul li{
+    color:darkslateblue;
+    font-size: 20px;
+    text-align: center;
+    list-style-position: inside;
+    font-style: oblique;
+}
+a:link,a:visited {
+    text-decoration: none;
+    background-color: green;
+    color: black;
+    margin-bottom: 10px;
+    text-align: center;
+    display: inline-block;
+    width: 300px;
+}
+a:hover,a:active {
+    background-color: greenyellow;
+    color: red;
+}
+body {
+    background-image: url("https://img.freepik.com/free-vector/gradient-dynamic-lines-background_23-2149020285.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+}
+.a1 {
+    position: absolute;
+    top: 250px;
+    bottom: auto;
+    left: 140px;
+    right: auto;
+
+}
+.a2 {
+    position: absolute;
+    top: 590px;
+    bottom: auto;
+    left: 140px;
+    right: auto;
+
+}
+.a3 {
+    position: absolute;
+    top: 980px;
+    bottom: auto;
+    left: 140px;
+    right: auto;
+
+}
+.a4 {
+    position: absolute;
+    top: 1290px;
+    bottom: auto;
+    left: 140px;
+    right: auto;
+
+}
+.a5 {
+    position: absolute;
+    top: 1390px;
+    bottom: auto;
+    left: 140px;
+    right: auto;
+
+}
+.a6 {
+    position: absolute;
+    top: 1490px;
+    bottom: auto;
+    left: 140px;
+    right: auto;
+
+}
