@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="ticket.css">
+    <title>Ticket</title>
+</head>
+<body>
+    <div class="container">
+        <div class="ticket">
+            <h1>Bus Ticket</h1>
+            <label for="fromInput">FROM</label>
+            <select id="fromInput">
+                <option value="RTC Complex">RTC Complex</option>
+                <option value="Maddilapalem">Maddilapalem</option>
+                <option value="Hanumantawaka">Hanumantawaka</option>
+                <option value="Endada">Endada</option>
+                <option value="Madhurawada">Madhurawada</option>
+                <option value="Kommadi">Kommadi</option>
+                <option value="Marikavalasa">Marikavalasa</option>
+                <option value="Boyipalem">Boyipalem</option>
+                <option value="Anandapuram">Anandapuram</option>
+                <option value="Tagarpuvalasa">Tagarpuvalasa</option>
+            </select>
+            <label for="toInput">TO</label>
+            <select id="toInput">
+                <option value="RTC Complex">RTC Complex</option>
+                <option value="Maddilapalem">Maddilapalem</option>
+                <option value="Hanumantawaka">Hanumantawaka</option>
+                <option value="Endada">Endada</option>
+                <option value="Madhurawada">Madhurawada</option>
+                <option value="Kommadi">Kommadi</option>
+                <option value="Marikavalasa">Marikavalasa</option>
+                <option value="Boyipalem">Boyipalem</option>
+                <option value="Anandapuram">Anandapuram</option>
+                <option value="Tagarpuvalasa">Tagarpuvalasa</option>
+            </select>
+            <button onclick="displayTicket()">OK</button>
+        </div>
+    </div>
+    <script>
+        function displayTicket() {
+            const from = document.getElementById("fromInput").value;
+            const to = document.getElementById("toInput").value;
+
+            const priceStructure = {
+                "RTC Complex-Maddilapalem": 10,
+                "RTC Complex-Hanumantawaka": 15,
+                "RTC Complex-Endada": 15,
+                "RTC Complex-Madhurawada": 20,
+                "RTC Complex-Kommadi": 20,
+                "RTC Complex-Marikavalasa": 25,
+                "RTC Complex-Boyipalem": 25,
+                "RTC Complex-Anandapuram": 30,
+                "RTC Complex-Tagarpuvalasa": 35,
+                "Maddilapalem-Hanumantawaka": 10,
+                "Maddilapalem-Endada": 15,
+                "Maddilapalem-Madhurawada": 20,
+                "Maddilapalem-Kommadi": 25,
+                "Maddilapalem-Marikavalasa": 25,
+                "Maddilapalem-Boyipalem": 25,
+                "Maddilapalem-Anandapuram": 30,
+                "Maddilapalem-Tagarpuvalasa": 35,
+                "Hanumantawaka-Endada": 10,
+                "Hanumantawaka-Madhurawada": 15,
+                "Hanumantawaka-Kommadi": 15,
+                "Hanumantawaka-Marikavalasa": 20,
+                "Hanumantawaka-Boyipalem": 25,
+                "Hanumantawaka-Anandapuram": 30,
+                "Hanumantawaka-Tagarpuvalasa": 35,
+                "Endada-Madhurawada": 10,
+                "Endada-Kommadi": 10,
+                "Endada-Marikavalasa": 15,
+                "Endada-Boyipalem": 15,
+                "Endada-Anandapuram": 20,
+                "Endada-Tagarpuvalasa": 30,
+                "Madhurawada-Kommadi": 10,
+                "Madhurawada-Marikavalasa": 10,
+                "Madhurawada-Boyipalem": 15,
+                "Madhurawada-Anandapuram": 20,
+                "Madhurawada-Tagarpuvalasa": 30,
+                "Kommadi-Marikavalasa": 10,
+                "Kommadi-Boyipalem": 10,
+                "Kommadi-Anandapuram": 20,
+                "Kommadi-Tagarpuvalasa": 30,
+                "Marikavalasa-Boyipalem": 10,
+                "Marikavalasa-Anandapuram": 15,
+                "Marikavalasa-Tagarpuvalasa": 25,
+                "Boyipalem-Anandapuram": 15,
+                "Boyipalem-Tagarpuvalasa": 20,
+                "Anandapuram-Tagarpuvalasa": 10,
+
+                "Maddilapalem-RTC Complex": 10,
+                "Hanumantawaka-RTC Complex": 15,
+                "Endada-RTC Complex": 15,
+                "Madhurawada-RTC Complex": 20,
+                "Kommadi-RTC Complex": 20,
+                "Marikavalasa-RTC Complex": 25,
+                "Boyipalem-RTC Complex": 25,
+                "Anandapuram-RTC Complex": 30,
+                "Tagarpuvalasa-RTC Complex": 35,
+                "Hanumantawaka-Maddilapalem": 10,
+                "Endada-Maddilapalem": 15,
+                "Madhurawada-Maddilapalem": 20,
+                "Kommadi-Maddilapalem": 25,
+                "Marikavalasa-Maddilapalem": 25,
+                "Boyipalem-Maddilapalem": 25,
+                "Anandapuram-Maddilapalem": 30,
+                "Tagarpuvalasa-Maddilapalem": 35,
+                "Endada-Hanumantawaka": 10,
+                "Madhurawada-Hanumantawaka": 15,
+                "Kommadi-Hanumantawaka": 15,
+                "Marikavalasa-Hanumantawaka": 20,
+                "Boyipalem-Hanumantawaka": 25,
+                "Anandapuram-Hanumantawaka": 30,
+                "Tagarpuvalasa-Hanumantawaka": 35,
+                "Madhurawada-Endada": 10,
+                "Kommadi-Endada": 10,
+                "Marikavalasa-Endada": 15,
+                "Boyipalem-Endada": 15,
+                "Anandapuram-Endada": 20,
+                "Tagarpuvalasa-Endada": 30,
+                "Kommadi-Madhurawada": 10,
+                "Marikavalasa-Madhurawada": 10,
+                "Boyipalem-Madhurawada": 15,
+                "Anandapuram-Madhurawada": 20,
+                "Tagarpuvalasa-Madhurawada": 30,
+                "Marikavalasa-Kommadi": 10,
+                "Boyipalem-Kommadi": 10,
+                "Anandapuram-Kommadi": 20,
+                "Tagarpuvalasa-Kommadi": 30,
+                "Boyipalem-Marikavalasa": 10,
+                "Anandapuram-Marikavalasa": 15,
+                "Tagarpuvalasa-Marikavalasa": 25,
+                "Anandapuram-Boyipalem": 15,
+                "Tagarpuvalasa-Boyipalem": 20,
+                "Tagarpuvalasa-Anandapuram": 10,
+
+            };
+
+            const key = from + "-" + to;
+            const price = priceStructure[key];
+
+            if (price) {
+                const ticketInfo = `
+                    <h2>Ticket Details</h2>
+                    <p>FROM: ${from}</p>
+                    <p>TO: ${to}</p>
+                    <p>PRICE: ${price} Rs</p>
+                    <p>APSRTC</p>
+                `;
+
+                // Open a new small popup window
+                const newWindow = window.open('', '', 'width=400, height=400');
+                newWindow.document.write(ticketInfo);
+                newWindow.document.close();
+            } else {
+                alert("Please select valid FROM and TO locations.");
+            }
+        }
+    </script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
